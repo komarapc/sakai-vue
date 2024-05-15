@@ -1,10 +1,18 @@
-<script setup>
+<script setup lang="ts">
 import { onMounted, reactive, ref, watch } from 'vue';
 import { ProductService } from '@/service/ProductService';
 import { useLayout } from '@/layout/composables/layout';
-
+import { useHead } from '@unhead/vue';
 const { isDarkTheme } = useLayout();
-
+useHead({
+    title: 'Dashboard',
+    meta: [
+        {
+            name: 'description',
+            content: 'PrimeBlocks Dashboard'
+        }
+    ]
+});
 const products = ref(null);
 const lineData = reactive({
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
