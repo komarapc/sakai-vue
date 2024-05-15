@@ -11,6 +11,11 @@ export default defineConfig(() => {
             alias: {
                 '@': fileURLToPath(new URL('./src', import.meta.url))
             }
+        },
+        ssr: {
+            external: ['vue', 'vue-router'],
+            noExternal: ['@vue/server-renderer'],
+            target: 'web'
         }
     };
 });
