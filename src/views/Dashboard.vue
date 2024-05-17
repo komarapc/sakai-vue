@@ -2,16 +2,12 @@
 import { onMounted, reactive, ref, watch } from 'vue';
 import { ProductService } from '@/service/ProductService';
 import { useLayout } from '@/layout/composables/layout';
-import { useHead } from '@unhead/vue';
+import { useHead, useSeoMeta } from '@unhead/vue';
 const { isDarkTheme } = useLayout();
-useHead({
+
+useSeoMeta({
     title: 'Dashboard',
-    meta: [
-        {
-            name: 'description',
-            content: 'PrimeBlocks Dashboard'
-        }
-    ]
+    description: 'PrimeBlocks Dashboard'
 });
 const products = ref(null);
 const lineData = reactive({
